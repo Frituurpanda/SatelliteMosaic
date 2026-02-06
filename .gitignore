@@ -1,0 +1,81 @@
+# ============================================
+# Clojure deps.edn Project .gitignore
+# ============================================
+
+# -----------------
+# Clojure / Java
+# -----------------
+.cpcache/
+target/
+classes/
+*.class
+*.jar
+
+# REPL
+.nrepl-port
+.rebel_readline_history
+
+# -----------------
+# clj-kondo (Linter)
+# -----------------
+# Keep library configs (.clj-kondo/*/), ignore only cache
+.clj-kondo/.cache/
+
+# -----------------
+# LSP (Clojure LSP)
+# -----------------
+.lsp/.cache/
+.lsp/sqlite.db
+
+# -----------------
+# IDE / Editors
+# -----------------
+# IntelliJ IDEA / Cursive
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+
+# Cursor
+.cursorrules
+.cursor/
+
+# Emacs
+*~
+\#*\#
+.dir-locals.el
+
+# Vim
+*.swp
+*.swo
+*~
+
+# -----------------
+# macOS
+# -----------------
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# -----------------
+# Project Output
+# -----------------
+output/
+
+# Temp images (but keep docs images)
+*.png
+!docs/*.png
+
+# -----------------
+# Logs
+# -----------------
+*.log
+
+# -----------------
+# Environment
+# -----------------
+.env
+.env.local
+*.local.edn

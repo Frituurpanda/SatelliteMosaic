@@ -1,0 +1,31 @@
+{:paths   ["src/main/clojure"]
+ :deps    {org.clojure/clojure {:mvn/version "1.11.1"}
+           etaoin/etaoin       {:mvn/version "1.0.40"}}
+ :aliases {;; Interactive mode - visual area selection (recommended)
+           :interactive {:exec-fn main/capture-interactive
+                         :exec-args {:city "sanfrancisco"
+                                     :output-dir "output"}}
+           
+           ;; Scripted mode - fixed grid capture
+           :run         {:exec-fn main/capture-map
+                         :exec-args {:city "sanfrancisco"
+                                     :rows 10
+                                     :cols 10
+                                     :zoom 100
+                                     :hidpi true
+                                     :output-dir "output"}}
+           
+           ;; Quick demo
+           :demo        {:exec-fn main/demo
+                         :exec-args {}}
+           
+           ;; Stitch existing tiles
+           :stitch      {:exec-fn main/stitch-tiles
+                         :exec-args {:input-dir "output/tiles"
+                                     :output-file "output/stitched.png"
+                                     :rows 10
+                                     :cols 10}}
+           
+           ;; Check for outdated deps
+           :outdated    {:extra-deps {com.github.liquidz/antq {:mvn/version "RELEASE"}}
+                         :main-opts  ["-m" "antq.core"]}}}
