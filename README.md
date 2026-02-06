@@ -33,7 +33,7 @@
 - **Ultra-high resolution** — stitch 10,000+ tiles into multi-gigapixel images (15GB+)
 - **Intelligent detection** — adapts to network speed, no hardcoded delays
 - **Fast stitching** — uses libvips for memory-efficient processing of massive images
-- **Print-ready output** — lossless PNG with real-time PPI calculations for poster printing
+- **Print-ready output** — lossless PNG for poster printing
 - **Auto-viewer** — opens results in vipsdisp instantly, even for 15GB+ files
 
 ---
@@ -160,9 +160,9 @@ clj -X main/stitch-tiles :input-dir '"output/tiles"' :output-file '"output/final
 |------|---------------|----------|
 | 10 | ~1.1 km | City overview |
 | 50 | ~220 m | Neighborhoods |
-| 100 | ~200 m | Maximum detail |
+| 100 | ~110 m | Maximum detail |
 
-**Note:** Zoom 100+ produces identical results—Apple Maps caps at ~0.00183° minimum span.
+**Note:** Zoom range is 1-100. Apple Maps may enforce its own minimum span, preventing zooming beyond a certain limit.
 
 ---
 
@@ -191,33 +191,6 @@ Printers use multiple ink dots per pixel for color accuracy. The optimal ratio i
 | 9600 | 2400 | Maximum consumer (Canon) |
 
 **Formula:** `Max PPI = Printer DPI ÷ 4`
-
-### Viewing Distance → Minimum Useful PPI
-
-| Distance | Min PPI | Use Case |
-|----------|---------|----------|
-| 10 cm (magnifier) | 300+ | Close inspection |
-| 30 cm (reading) | 150 | Detailed viewing |
-| 1 m (arm's length) | 100 | Wall art |
-| 2 m+ (across room) | 50–75 | Large posters |
-
-**Human eye limit:** ~300 PPI at 10–20 cm. Beyond this, only magnification reveals more detail.
-
-### Calculating Print Size
-
-```
-Print size (inches) = Pixels ÷ PPI
-Print size (cm) = Pixels ÷ PPI × 2.54
-```
-
-### Quick Reference: Pixels Needed for 300 PPI
-
-| Print Size | Pixels Required | Megapixels |
-|------------|-----------------|------------|
-| 50 × 50 cm | 5,906 × 5,906 | 35 MP |
-| 1 × 1 m | 11,811 × 11,811 | 139 MP |
-| 1.5 × 1.5 m | 17,717 × 17,717 | 314 MP |
-| 2 × 2 m | 23,622 × 23,622 | 558 MP |
 
 ## Contributing
 
